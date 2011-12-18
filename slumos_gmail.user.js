@@ -27,20 +27,20 @@ function slumos_gmail_setup(gmail) {
       if (!body.match(/^\n\n\w.*?:\n>/)) {
         return;
       }
-    
+
       // Strip empty lines and attribution blob.
       textarea.value = body.replace(/^\n\n\w.*:\n/, '');
-    
+
       textarea.scrollTop = textarea.scrollHeight;
-    
+
       var text_end = body.length;
-    
+
       // Cursor won't move unless we wait for something (what?) to finish.
       setTimeout(function() {textarea.setSelectionRange(text_end, text_end)}, 1);
     }, true);
 }
 
-// window.addEventListener('load', 
+// window.addEventListener('load',
 //   function() {
 //     if (unsafeWindow.gmonkey) {
 //       unsafeWindow.gmonkey.load('1.0', slumos_gmail_setup);
